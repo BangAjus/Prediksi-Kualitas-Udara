@@ -1,7 +1,6 @@
 pandas==2.3.0
 streamlit==1.41.1
-numpy==1.21.2
-os
+numpy==1.26.4
 io
 requests
 datetime
