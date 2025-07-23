@@ -5,13 +5,7 @@ import datetime
 from features.machine_learning import ManhattanKNN, MinMaxScaler
 from io import BytesIO
 
-from dotenv import load_dotenv
 import os
-from pathlib import Path
-
-env_path = Path(__file__).parent / ".env"
-load_dotenv(dotenv_path=env_path)
-
 
 def main():
 
