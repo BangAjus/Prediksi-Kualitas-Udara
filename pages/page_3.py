@@ -67,7 +67,7 @@ def main():
     def datetime_to_unix(dt):
         return int(dt.timestamp())
     
-    csv_path = 'C:\Gabut\Flask\Finale/apps\lat_long.csv'
+    csv_path = 'lat_long.csv'
     provinces = pd.read_csv(csv_path)
 
     province = st.selectbox(

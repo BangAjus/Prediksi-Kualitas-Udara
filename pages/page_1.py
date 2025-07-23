@@ -29,7 +29,7 @@ def main():
     
     if subfeature == 'Kualitas Udara Sekarang di Provinsi Tertentu':
 
-        csv_path = 'C:/Gabut/Flask/Finale/apps/lat_long.csv'
+        csv_path = 'lat_long.csv'
         data = pd.read_csv(csv_path)
 
         def get_air_pollution_data(latitude, 
