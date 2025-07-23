@@ -1,7 +1,6 @@
 pandas
 streamlit
 numpy
-dotenv
 os
 io
 requests
