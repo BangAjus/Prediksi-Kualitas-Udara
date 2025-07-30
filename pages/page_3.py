@@ -169,7 +169,7 @@ def main():
              .rename(columns={'time':'tanggal'})
     df['provinsi'] = [province] * df.shape[0]
     df = df[['provinsi', 'tanggal', 'pm10', 'pm2.5',
-             'so2', 'co', 'o3', 'no2']]
+             'so2', 'co', 'o3', 'no2', 'label']]
 
     csv_buffer = BytesIO()
     df.to_csv(csv_buffer, 
