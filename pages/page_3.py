@@ -156,12 +156,12 @@ def main():
                     stack=False,
                     horizontal=False)
 
-    st.subheader(f"Grafik Sebaran Keenam Polutan Udara Tiap Harinya Pada Di {province} Tahun {year_time}")
-    st.line_chart(
-            data.reset_index(),
-            x='time',
-            y=["pm10", "pm2.5", "so2",
-               "co", "o3", "no2"]
+    st.subheader(f"Grafik  Korelasi Keenam Polutan Udara Terhadap Kualitas Udara Di {province} Tahun {year_time}")
+    corr_df = df.corr(method='pearson')[['label']].head(-1)
+    st.bar_chart(
+            corr_df,
+            x=corr_df.index,
+            y='label'
         )
     
     df = data.copy()\
