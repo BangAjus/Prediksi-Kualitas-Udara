@@ -92,9 +92,9 @@ def main():
                 
                 eda_data = df[df['nama_kota'] == city_name]
 
-                st.subheader(f"Grafik Sebaran Kualitas Udara Di {city_name}:")
+                st.subheader(f"Grafik Sebaran Kategori Kualitas Udara Di {city_name}:")
                 st.bar_chart(
-                data=eda_data.groupby('label')\
+                    data=eda_data.groupby('label')\
                         .agg({'so2':'count'})
                         .reset_index()\
                         .rename(columns={'so2':'count'}),
@@ -142,12 +142,12 @@ def main():
                                 stack=False,
                                 horizontal=False)
 
-                st.subheader(f"Grafik Sebaran Keenam Polutan Udara Tiap Harinya Pada Di {city_name}")
-                st.line_chart(
-                        df,
-                        x='tanggal',
-                        y=["pm10", "pm2.5", "so2",
-                        "co", "o3", "no2"]
+                st.subheader(f"Grafik Korelasi Keenam Polutan Udara Terhadap Kualitas Udara Di {city_name}")
+                corr_df = df.corr(method='pearson')[['label']].head(-1)
+                st.bar_chart(
+                        corr_df,
+                        x=corr_df.index,
+                        y='label'
                     )
             
         except Exception as e:
