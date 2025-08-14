@@ -75,9 +75,9 @@ def main():
                         tuple(range(2021, 2025, 1)),
                     )
     
-    if st.button("⬅ Kembali ke awal"):
-        st.switch_page("app.py")
-        
+    st.page_link("app.py", 
+                 label="Kembali ke awal")
+
     start = datetime.datetime(year_time, 1, 1, 0, 0, 0, 
                               tzinfo=datetime.timezone.utc)
     end = datetime.datetime(year_time, 12, 31, 23, 59, 59, 

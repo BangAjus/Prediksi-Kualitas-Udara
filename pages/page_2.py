@@ -22,8 +22,8 @@ def main():
 
     uploaded_file = st.file_uploader("Upload file CSV atau Excel file", type=["csv", "xlsx"])
 
-    if st.button("⬅ Kembali ke awal"):
-        st.switch_page("app.py")
+    st.page_link("app.py", 
+                 label="Kembali ke awal")
 
     if uploaded_file is not None:
         

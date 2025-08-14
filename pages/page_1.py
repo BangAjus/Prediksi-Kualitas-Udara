@@ -20,8 +20,8 @@ def main():
                         ],
                     )
     
-    if st.button("⬅ Kembali ke awal"):
-        st.switch_page("app.py")
+    st.page_link("app.py", 
+                 label="Kembali ke awal")
     
     if subfeature == 'Kualitas Udara Sekarang di Provinsi Tertentu':
 
