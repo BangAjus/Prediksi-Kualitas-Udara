@@ -20,6 +20,9 @@ def main():
                         ],
                     )
     
+    if st.button("⬅ Kembali ke awal"):
+        st.switch_page("app.py")
+    
     if subfeature == 'Kualitas Udara Sekarang di Provinsi Tertentu':
 
         csv_path = 'lat_long.csv'
@@ -68,12 +71,12 @@ def main():
             model = ManhattanKNN()
             scaler = MinMaxScaler()
 
-            data = scaler.transform(np.array([[data['pm10'] if data['pm10'] > 0 else 0,
-                                            data['pm2_5'] if data['pm2_5'] > 0 else 0,
-                                            data['so2'] if data['so2'] > 0 else 0,
-                                            data['co'] if data['co'] > 0 else 0,
-                                            data['o3'] if data['o3'] > 0 else 0,
-                                            data['no2'] if data['no2'] > 0 else 0]]))
+            data = scaler.transform(np.array([[data['pm10'] if data['pm10'] >= 0 else 0,
+                                            data['pm2_5'] if data['pm2_5'] >= 0 else 0,
+                                            data['so2'] if data['so2'] >= 0 else 0,
+                                            data['co'] if data['co'] >= 0 else 0,
+                                            data['o3'] if data['o3'] >= 0 else 0,
+                                            data['no2'] if data['no2'] >= 0 else 0]]))
             
             prediction = category[model.predict(data)[0]]
 

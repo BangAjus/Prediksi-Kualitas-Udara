@@ -75,6 +75,9 @@ def main():
                         tuple(range(2021, 2025, 1)),
                     )
     
+    if st.button("⬅ Kembali ke awal"):
+        st.switch_page("app.py")
+        
     start = datetime.datetime(year_time, 1, 1, 0, 0, 0, 
                               tzinfo=datetime.timezone.utc)
     end = datetime.datetime(year_time, 12, 31, 23, 59, 59, 
@@ -157,8 +160,8 @@ def main():
                     horizontal=False)
 
     st.subheader(f"Grafik  Korelasi Keenam Polutan Udara Terhadap Kualitas Udara Di {province} Tahun {year_time}")
-    corr_df = df[['pm10','pm2.5','so2','co',
-                              'o3','no2','label']]\
+    corr_df = data[['pm10','pm2.5','so2','co',
+                  'o3','no2','label']]\
                 .replace({'BAIK':0,
                           'SEDANG':1,
                           'TIDAK SEHAT':2,
