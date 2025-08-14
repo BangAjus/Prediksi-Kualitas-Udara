@@ -163,11 +163,12 @@ def main():
                           'SEDANG':1,
                           'TIDAK SEHAT':2,
                           'SANGAT TIDAK SEHAT':3})\
-                .corr(method='pearson')[['label']].head(-1)
+                .corr(method='pearson')[['label']].head(-1)\
+                .reset_index()
     
     st.bar_chart(
             corr_df,
-            x=corr_df.index,
+            x='index',
             y='label'
         )
     
