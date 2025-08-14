@@ -157,7 +157,8 @@ def main():
                     horizontal=False)
 
     st.subheader(f"Grafik  Korelasi Keenam Polutan Udara Terhadap Kualitas Udara Di {province} Tahun {year_time}")
-    corr_df = df.corr(method='pearson')[['label']].head(-1)
+    corr_df = df[['pm10','pm2.5','so2','co',
+                  'o3','no2','label']].corr(method='pearson')[['label']].head(-1)
     st.bar_chart(
             corr_df,
             x=corr_df.index,
