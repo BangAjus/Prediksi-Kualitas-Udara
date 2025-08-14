@@ -144,7 +144,13 @@ def main():
 
                 st.subheader(f"Grafik Korelasi Keenam Polutan Udara Terhadap Kualitas Udara Di {city_name}")
                 corr_df = df[['pm10','pm2.5','so2','co',
-                              'o3','no2','label']].corr(method='pearson')[['label']].head(-1)
+                              'o3','no2','label']]\
+                            .replace({'BAIK':0,
+                                      'SEDANG':1,
+                                      'TIDAK SEHAT':2,
+                                      'SANGAT TIDAK SEHAT':3})\
+                            .corr(method='pearson')[['label']].head(-1)
+                
                 st.bar_chart(
                         corr_df,
                         x=corr_df.index,
