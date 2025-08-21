@@ -71,12 +71,13 @@ def main():
             model = ManhattanKNN()
             scaler = MinMaxScaler()
 
-            data = scaler.transform(np.array([[abs(data['pm10']),
-                                            abs(data['pm2_5']),
-                                            abs(data['so2']),
-                                            abs(data['co']),
-                                            abs(data['o3']),
-                                            abs(data['no2'])]]))
+            data = np.array([[abs(data['pm10']),
+                                abs(data['pm2_5']),
+                                abs(data['so2']),
+                                abs(data['co']),
+                                abs(data['o3']),
+                                abs(data['no2'])]])
+            data = scaler.transform(data)
             
             prediction = category[model.predict(data)[0]]
 
