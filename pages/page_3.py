@@ -97,6 +97,9 @@ def main():
     data = process_hourly_to_daily(data)
     columns2 = ['pm10', 'pm2.5',
                 'so2', 'co', 'o3', 'no2']
+    
+    for i in columns2:
+        data[i] = data[i].apply(lambda x: abs(x))
             
     data_to_predict = data[columns2].to_numpy()
     scaler = MinMaxScaler()
