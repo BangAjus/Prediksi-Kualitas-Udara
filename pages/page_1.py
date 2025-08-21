@@ -77,9 +77,10 @@ def main():
                                 abs(data['co']),
                                 abs(data['o3']),
                                 abs(data['no2'])]])
-            data = scaler.transform(data)
             
-            prediction = category[model.predict(data)[0]]
+            data_normalized = scaler.transform(data)
+            
+            prediction = category[model.predict(data_normalized)[0]]
 
             st.write("---")
 
